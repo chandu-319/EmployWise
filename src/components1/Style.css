@@ -1,0 +1,687 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+:root {
+  --neon-blue: #00f3ff;
+  --neon-pink: #ff00ff;
+  --neon-green: #39ff14;
+  --dark-bg: #000000;
+}
+
+.cyberpunk-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  background-image: radial-gradient(circle at center, rgba(0, 255, 255, 0.3) 20%, rgba(0, 0, 0, 1) 90%);
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+}
+
+.login-card {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 15px #0ff;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers horizontally */
+  justify-content: center; /* Centers vertically if needed */
+
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    var(--neon-blue),
+    var(--neon-pink),
+    var(--neon-blue)
+  );
+  z-index: -1;
+  animation: borderGlow 3s linear infinite;
+  filter: blur(8px);
+}
+
+@keyframes borderGlow {
+  0% {
+    filter: blur(8px) hue-rotate(0deg);
+  }
+  100% {
+    filter: blur(8px) hue-rotate(360deg);
+  }
+}
+
+.neon-text {
+  color: var(--neon-blue);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px var(--neon-blue),
+               0 0 20px var(--neon-blue),
+               0 0 30px var(--neon-blue);
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px var(--neon-blue),
+                 0 0 20px var(--neon-blue),
+                 0 0 30px var(--neon-blue);
+  }
+  to {
+    text-shadow: 0 0 5px var(--neon-blue),
+                 0 0 10px var(--neon-blue),
+                 0 0 15px var(--neon-blue);
+  }
+}
+
+.neon-input {
+  width: 93%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--neon-blue);
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.neon-input:focus {
+  outline: none;
+  border-bottom-color: var(--neon-pink);
+  box-shadow: 0 4px 8px rgba(0, 243, 255, 0.2);
+}
+
+.neon-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.glitch-button {
+  display: block;
+  margin: 1rem auto;
+  width: 40%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: rgba(0, 243, 255, 0.1);
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-blue);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glitch-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 243, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.glitch-button:hover::before {
+  left: 100%;
+}
+
+.glitch-button:hover {
+  background: var(--neon-blue);
+  color: black;
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.error-text {
+  color: var(--neon-pink);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: errorGlow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes errorGlow {
+  from {
+    text-shadow: 0 0 5px var(--neon-pink),
+                 0 0 10px var(--neon-pink);
+  }
+  to {
+    text-shadow: 0 0 2px var(--neon-pink),
+                 0 0 5px var(--neon-pink);
+  }
+}
+
+.user-list-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid cyan;
+    box-shadow: 0 0 15px cyan;
+    width: 90%;
+    margin: auto;
+    max-width: 600px;
+  }
+
+  .user-card {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid cyan;
+    box-shadow: 0 0 10px cyan;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .user-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px cyan;
+  }
+  
+  .user-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid cyan;
+    margin-right: 15px;
+  }
+  
+  .user-info h3 {
+    color: cyan;
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .user-info p {
+    color: white;
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .edit-btn, .delete-btn {
+    margin-left: 10px;
+    background: transparent;
+    border: 2px solid cyan;
+    color: cyan;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .edit-btn:hover {
+    background: cyan;
+    color: black;
+  }
+  
+  .delete-btn {
+    border: 2px solid red;
+    color: red;
+  }
+  
+  .delete-btn:hover {
+    background: red;
+    color: black;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+  }
+  
+  .pagination-text {
+    color: cyan;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .pagination-btn {
+    background: transparent;
+    border: 2px solid cyan;
+    color: cyan;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .pagination-btn:hover {
+    background: cyan;
+    color: black;
+  }
+  
+  .pagination-btn:disabled {
+    border: 2px solid gray;
+    color: gray;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+
+ 
+  
+/* Remove default autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+} 
+
+
+ /* LOG-OUT   */
+ .logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .logout-btn {
+    background: transparent;
+    border: 2px solid red;
+    color: red;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .logout-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: red;
+    transition: all 0.4s ease-in-out;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+  }
+  
+  .logout-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .logout-btn:hover {
+    color: black;
+  }
+  
+  .logout-btn:disabled {
+    border-color: gray;
+    color: gray;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+ 
+  
+  /* EdiCard */
+  .edit-user-container {
+    background: black;
+    border: 2px solid cyan;
+    box-shadow: 0 0 20px cyan;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  h2 {
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 15px;
+  }
+  
+  /* Input Fields */
+  input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid cyan;
+    background: black;
+    color: cyan;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 10px cyan;
+  }
+  
+  input::placeholder {
+    color: rgba(0, 255, 255, 0.5);
+  }
+  
+  input:focus {
+    box-shadow: 0 0 20px cyan;
+  }
+  
+  /* Button Group */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+  
+  /* Buttons */
+  .save-btn,
+  .cancel-btn {
+    padding: 8px 15px;
+    border: 2px solid cyan;
+    background: transparent;
+    color: cyan;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px cyan;
+    border-radius: 5px;
+  }
+  
+  .cancel-btn {
+    border-color: red;
+    color: red;
+    box-shadow: 0 0 10px red;
+  }
+  
+  .save-btn:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 20px cyan;
+  }
+  
+  .cancel-btn:hover {
+    background: red;
+    color: white;
+    box-shadow: 0 0 20px red;
+  }
+  
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+/* User List */
+.user-list-container {
+    flex: 1;
+}
+
+/* Edit User */
+.edit-user-container {
+    flex: 1;
+}
+
+/* Spinner styles */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled button styles */
+.save-btn:disabled,
+.cancel-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .user-list-container,
+  .edit-user-container {
+    width: 95%;
+    max-width: 100%;
+  }
+
+  .user-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .user-avatar {
+    margin: 0 0 15px 0;
+  }
+
+  .button-group {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .logout-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .neon-text {
+    font-size: 1.5rem;
+  }
+
+  .login-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .user-card {
+    width: 100%;
+  }
+
+  .edit-btn, 
+  .delete-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .pagination-container {
+    flex-wrap: wrap;
+  }
+
+  .pagination-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .neon-input {
+    width: 100%;
+  }
+
+  .glitch-button {
+    width: 60%;
+  }
+
+  .edit-user-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Fix for very small screens */
+@media screen and (max-width: 320px) {
+  .user-info h3 {
+    font-size: 16px;
+  }
+
+  .user-info p {
+    font-size: 12px;
+  }
+
+  .neon-text {
+    font-size: 1.2rem;
+  }
+
+  .pagination-text {
+    font-size: 14px;
+  }
+}
+
+/* Fix for landscape orientation on mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .cyberpunk-container {
+    padding: 20px;
+  }
+
+  .login-card {
+    margin: 20px;
+  }
+
+  .user-card {
+    margin: 10px auto;
+  }
+
+  .logout-container {
+    position: relative;
+    margin: 10px 0;
+  }
+}
+
+/* High-resolution screens */
+@media screen and (min-width: 1440px) {
+  .main-container {
+    max-width: 1400px;
+  }
+
+  .user-card {
+    max-width: 600px;
+  }
+
+  .user-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .user-info h3 {
+    font-size: 20px;
+  }
+
+  .user-info p {
+    font-size: 16px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  input:disabled {
+    background-color: #2a2a2a;
+  }
+}
+
+/* Print styles */
+@media print {
+  .cyberpunk-container {
+    background: white;
+  }
+
+  .login-card,
+  .user-card,
+  .edit-user-container {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+
+  .neon-text,
+  .user-info h3,
+  .edit-btn,
+  .delete-btn,
+  .save-btn,
+  .cancel-btn {
+    color: #000;
+    text-shadow: none;
+  }
+
+  .button-group {
+    display: none;
+  }
+}
