@@ -685,3 +685,92 @@ input:disabled {
     display: none;
   }
 }
+/* Ultra-wide screen support */
+@media screen and (min-width: 2560px) {
+  .main-container {
+    max-width: 1800px;
+    gap: 50px;
+  }
+
+  .user-list-container,
+  .edit-user-container {
+    max-width: 800px;
+  }
+
+  .user-card {
+    max-width: 700px;
+    padding: 30px;
+  }
+
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .user-info h3 {
+    font-size: 22px;
+  }
+
+  .user-info p {
+    font-size: 18px;
+  }
+}
+
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .glitch-button::before,
+  .logout-btn::before {
+    display: none;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .user-card,
+  .glitch-button,
+  .logout-btn {
+    transition: transform 0.2s ease;
+  }
+
+  .user-card:active,
+  .glitch-button:active,
+  .logout-btn:active {
+    transform: scale(0.95);
+  }
+
+  .neon-input,
+  .edit-btn,
+  .delete-btn,
+  .save-btn,
+  .cancel-btn {
+    tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Improved tablet support */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .main-container {
+    width: 95%;
+    gap: 20px;
+  }
+
+  .user-list-container,
+  .edit-user-container {
+    max-width: 500px;
+  }
+
+  .user-card {
+    max-width: 450px;
+  }
+
+  .pagination-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
